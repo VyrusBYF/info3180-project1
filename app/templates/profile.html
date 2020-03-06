@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block main%}
+<h1 class= "page-header" >Add Profile</h1>
+<form id="profileForm" method="POST" enctype="multipart/form-data">
+	{{form.csrf_token}}
+	<div class="form-group">
+		{{ form.file.label }}
+		{{ form.file(class="form-control") }}
+	</div>
+	<button type="submit" name="submit" class="btn btn-primary">Upload file</button>
+</form>
+
+{% endblock%}
