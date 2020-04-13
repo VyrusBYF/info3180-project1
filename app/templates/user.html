@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block main %}
+<div id = "user">
+		<div id="photo" class= "usergrid1">
+			<img src = "{{url_for('static', filename = 'uploads/' + user.file)}}" alt = "Profile Photo" class = "photo">
+		</div>
+		<div class="usergrid2">
+			<span class="name">{{ user.firstname}} {{ user.lastname}}</span><br>
+			<i class="far fa-envelope icon"></i> <span class="info"> {{ user.email }} </span> <br>
+			<i class="fas fa-map-marker-alt icon" ></i> <span class="info">{{ user.location }}</span> <br>
+			<i class="fas fa-birthday-cake icon"></i> <span class="info"> {{ "Joined on " ~ user.join_date }} </span> <br>
+
+		</div>
+		<div id= 'about' class = "usergrid3">
+			<h4> About Me </h4>
+			<span> {{ user.bio }} </span>
+		</div>
+		<div class="usergrid4">
+			<button class = "msgbtn"> Send Message</button>
+		</div>
+		<div class="usergrid5">
+			<button class = "followbtn"> Follow </button>
+		</div>
+	</div>
+{% endblock %}

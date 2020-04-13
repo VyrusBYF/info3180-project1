@@ -1,3 +1,201 @@
 body {
     padding-top: 5rem;
+    background-color: #BDEDFF;
+}
+
+
+.form-label{
+	font-weight: bold;
+}
+
+.field{
+	width: 50%;
+	-moz-box-shadow: inset -1px -1px 2px #CCC;
+  -webkit-box-shadow: inset -1px -1px 2px #CCC;
+  box-shadow: inset -1px -1px 2px #CCC;
+  border-radius:5px;
+}
+
+.upload{
+	border:none;
+	display: block;
+}
+
+.desc{
+	width: 50%;
+	height: 130px;
+	-moz-box-shadow: inset -1px -1px 2px #CCC;
+    -webkit-box-shadow: inset -1px -1px 2px #CCC;
+    box-shadow: inset -1px -1px 2px #CCC;
+    border-radius:5px;
+
+}
+
+
+#profilebtn{
+	background-color: #2ecc71;
+	border-radius: 5px;
+}
+
+
+
+button:focus, button:active:focus, button.active:focus {
+    outline: none !important;
+    outline-style: none !important;
+}
+
+input:focus::-webkit-input-placeholder 
+{
+    color: transparent;
+}
+
+/*----------------------------------------------------------------------------------------------------------*/
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btn {
+  border: 0.5px solid gray;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/*-------------------------------------------------------Profile Card-------------------------------------------------------*/
+
+#profilecard{
+  background-color: #ffffff;
+  display: grid;
+  grid-template: 30%/ 28% 40% 30%;
+  border: transparent;
+  border-top: solid #54a0ff 3px;
+  border-radius: 5px;
+  width: 500px;
+  height: 130px;
+}
+.photo{
+  height: 100px;
+  width: 100px;
+  border-radius: 8px;
+}
+#profilecard div{
+  /*border: solid black 1px;*/
+}
+.grid1{
+  margin-top: 12px;
+  text-align: center;
+}
+.grid2{
+  margin-top: 20px;
+}
+
+.grid3{
+  margin-top: 10px;
+    text-align: center;
+}
+.profbtn {
+  border: 0.5px solid white;
+  color: white;
+  background-color: #2ecc71 ;
+  padding: 2px 8px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 35px;
+}
+.icon{
+  color:#d2dae2;
+  padding-right: 5px;
+}
+.name{
+  font-weight: bold;
+}
+
+/*------------------------------------------------------- User -------------------------------------------------------*/
+
+#user{
+  background-color: #ffffff;
+  display: grid;
+  grid-template: 40% 40% 10% / 40% 60%;
+  border: transparent;
+  border-top: solid #54a0ff 3px;
+  border-radius: 5px;
+  width: 400px;
+  height: 300px;
+  margin-left: 200px;
+}
+/*
+#user div{
+  border: solid black 1px;
+}*/
+
+.usergrid1{
+  margin-top: 12px;
+  margin-left: 20px;
+  text-align: left;
+}
+.usergrid2{
+  margin-top: 20px;
+}
+
+.usergrid3{
+  margin-top: 10px;
+  text-align: center;
+  grid-column-end: span 2;
+  width: 73%;
+  line-height: 1;
+}
+
+.usergrid4{
+  text-align: center;
+  vertical-align: middle;
+}
+
+.usergrid5{
+  text-align: center;
+}
+#about h4{
+  font-size: 13px;
+}
+#about span{
+  font-size: 13px;
+  margin-top: -10px;
+}
+#about{
+  text-align: left;
+  margin-left: 35px;
+}
+
+.msgbtn {
+  border: 0.5px solid white;
+  color: white;
+  background-color: #2ecc71 ;
+  padding: 2px 8px;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: bold;
+  width: 90%;
+  margin-left: 25px;
+}
+
+.followbtn{
+  border: 0.5px solid white;
+  color: white;
+  background-color: #54a0ff ;
+  padding: 2px 8px;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: bold;
+  width: 70%;
+  margin-left: 15px;
+}
+
+.info{
+  color: #989898;
+  font-size: 14px;
 }

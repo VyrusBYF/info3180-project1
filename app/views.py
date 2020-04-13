@@ -1,17 +1,18 @@
-"""
-Flask Documentation:     http://flask.pocoo.org/docs/
-Jinja2 Documentation:    http://jinja.pocoo.org/2/documentation/
-Werkzeug Documentation:  http://werkzeug.pocoo.org/documentation/
-This file creates your application.
-"""
+# pylint: disable=W0312
+# pylint: disable=C0111
+# pylint: disable=W0611
+# pylint: disable=C0303
+# pylint: disable=C0301 
+# pylint: disable=E1101
 
-from app import app, db, login_manager
-from flask import render_template, request, redirect, url_for, flash
+import os
+from flask import render_template, request, redirect, url_for, flash, session
 from flask_login import login_user, logout_user, current_user, login_required
-from app.forms import LoginForm
+from werkzeug.utils import secure_filename
+from datetime import date
+from app import app, db, login_manager
+from app.forms import UserForm
 from app.models import UserProfile
-from werkzeug.security import check_password_hash
-
 
 ###
 # Routing for your application.
@@ -22,11 +23,37 @@ def home():
     """Render website's home page."""
     return render_template('home.html')
 
-@app.route('/profile')
-def createProfile():
-	return render_template('render_template')
+@app.route('/profile', methods=['GET', 'POST'])
+def profile():
+    form = UserForm()
+    if request.method == 'POST':
+        fname = form.firstname.data
+        lname = form.lastname.data
+        email = form.email.data
+        gender = form.gender.data
+        location = form.location.data
+        bio = form.bio.data
+        photo = form.file.data
+        filename = secure_filename(photo.filename)
+        join_date = date.today().strftime("%B %d, %Y")
+        photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        flash('Your Profile Has Been Created!', 'success')
 
-@app.route('/profile/')
+        db.session.add(UserProfile(firstname=fname, lastname=lname, email=email, gender=gender, location=location, bio=bio, file=filename, join_date=join_date))
+        db.session.commit()
+        return redirect(url_for('home'))
+    return render_template('profile.html', form=form)
+
+@app.route('/profiles', methods=['GET','POST'])
+def profiles():
+    model = UserProfile.query.all()
+    #print(model)
+    return render_template('profiles.html', model=model)
+
+@app.route('/profile/<userid>')
+def viewProfile(userid):
+    user = UserProfile.query.filter_by(id= int(userid)).first()
+    return render_template('user.html', user = user)
 
 @app.route('/about/')
 def about():

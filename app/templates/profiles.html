@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block main %}
+<h1 class = "page header">Profiles</h1>
+<div>
+	{% for profile in model %}
+	<div id = "profilecard">
+		<div id="photo" class= "grid1">
+			<img src = "{{url_for('static', filename = 'uploads/' + profile.file)}}" alt = "Profile Photo" class = "photo">
+		</div>
+		<div class="grid2">
+			<span class="name">{{ profile.firstname}} {{ profile.lastname}}</span><br>
+			<i class="far fa-user icon"></i>{{ profile.gender }}<br>
+			<i class="fas fa-map-marker-alt icon" ></i>{{ profile.location }}<br>
+
+		</div>
+		<div class = "grid3">
+			<form action = "/profile/{{ profile.id }}">
+				<button type="submit" class="profbtn">View Profile</button>
+			</form>
+		</div>
+	</div><br><br> 
+	{% endfor %}
+</div>
+{% endblock %}
