@@ -68,6 +68,13 @@ def flash_errors(form):
                 error
             ), 'danger')
 
+
+# user_loader callback. This callback is used to reload the user object from
+# the user ID stored in the session
+@login_manager.user_loader
+def load_user(id):
+    return UserProfile.query.get(int(id))
+
 ###
 # The functions below should be applicable to all Flask apps.
 ###
